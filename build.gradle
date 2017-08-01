@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.9"
+    }
+}
+
+plugins {
+    id "net.ltgt.apt" version "0.9"
+    id "java"
+    id "idea"
+}
+
+
+apply plugin: 'java'
+
+group 'io.fresch'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile 'com.google.dagger:dagger:2.9'
+    apt 'com.google.dagger:dagger-compiler:2.9'
+}
